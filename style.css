@@ -1,0 +1,193 @@
+@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
+
+.varela-round-regular {
+  font-family: "Varela Round", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  background-color: #83a178;
+  font-family: "Varela Round", sans-serif;
+  margin: 0 auto;
+  max-width: 500px;
+  line-height: 1.4;
+}
+
+h1,
+h2,
+h3,
+p {
+  text-align: center;
+}
+
+h2 {
+  line-height: 2;
+}
+
+#dog {
+  border-radius: 35px;
+  border: 5px solid black;
+  padding: 20px;
+  background-color: white;
+  opacity: 100%;
+  display: inital;
+  transition: opacity 0.5s ease-in;
+}
+
+#dog.fade {
+  opacity: 0%;
+}
+
+#dog.gone {
+  display: none;
+}
+
+.image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 95%;
+  border-radius: 10%;
+}
+
+button {
+  font-family: "Varela Round", sans-serif;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#record1 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+}
+
+#record2 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+}
+
+#record3 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.recordSpin {
+  animation: spin 5s linear infinite;
+}
+
+#fade1 {
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+#fade1.fade {
+  opacity: 1;
+}
+
+#fade2 {
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+#fade2.fade {
+  opacity: 1;
+}
+
+#fade3 {
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+#fade3.fade {
+  opacity: 1;
+}
+
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+.mySlides {
+  display: none;
+}
+
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 10px 10px 10px 10px;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 10px 10px 10px 10px;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active,
+.dot:hover {
+  background-color: #717171;
+}
+
+.change {
+  animation-name: change;
+  animation-duration: 1.5s;
+}
+
+@keyframes change {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
