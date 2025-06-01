@@ -1,105 +1,87 @@
-//٠࣪⭑꩜.ᐟ
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("DOM fully loaded and parsed");
 
-var fade = document.getElementById("dog");
-var gone = document.getElementById("dog");
-var fade1 = document.getElementById("fade1");
-var fade2 = document.getElementById("fade2");
-var fade3 = document.getElementById("fade3");
+  // Restore all togglable buttons
+  const allButtons = document.querySelectorAll(
+    ".selectionInside, .selection2Inside"
+  );
 
-document.getElementById("button").onclick = function () {
-  fade.classList.toggle("fade");
-  setTimeout(() => {
-    gone.classList.toggle("gone");
-  }, 500);
-  setTimeout(() => {
-    fade1.classList.toggle("fade");
-  }, 1000);
-  setTimeout(() => {
-    fade2.classList.toggle("fade");
-  }, 2500);
-  setTimeout(() => {
-    fade3.classList.toggle("fade");
-  }, 4000);
-};
+  allButtons.forEach((button, index) => {
+    const savedState = localStorage.getItem(button.id);
+    if (savedState === "on") {
+      button.style.backgroundColor = "rgba(0, 0, 0, 1)";
+    } else {
+      button.style.backgroundColor = "rgba(0, 0, 0, 0)";
+    }
+  });
+});
 
-var audio1 = new Audio(
-  "https://vgmsite.com/soundtracks/tomodachi-life-3ds/wvuuuxgvsm/010.%20Mii%20Apartments%20%28Inside%20Apartment%29.mp3"
-);
-var audio2 = new Audio(
-  "https://vgmsite.com/soundtracks/tomodachi-life-3ds/nzrxmogmii/004.%20Map%20%28Day%29.mp3"
-);
-var audio3 = new Audio(
-  "https://vgmsite.com/soundtracks/tomodachi-life-3ds/qlarwegazq/005.%20Map%20%28Night%29.mp3"
-);
+const progressBar = document.getElementById("progress");
+const icon = document.getElementById("characterImage");
+const healthStatus = document.getElementById("healthStatus");
+let currentProgress = 0;
+let index = 7;
+let progressHue = 110;
+const health = [
+  "Incapacitated",
+  "Crippled",
+  "Mauled",
+  "Wounded",
+  "Injured",
+  "Hurt",
+  "Bruised",
+  "Healthy"
+];
 
-const record1 = document.getElementById("record1");
+const stringifiedHealth = JSON.stringify(health);
 
-function record1On() {
-  var on = document.getElementById("record1");
-  on.className += " recordSpin";
-  record1.style.animationPlayState = "running";
-  audio1.loop = true;
-  audio1.play();
-}
+function updateUI() {
+  const progress = (index / (health.length - 1)) * 100;
+  progressBar.style.width = progress + "%";
+  healthStatus.textContent = health[index];
 
-function record2On() {
-  var on = document.getElementById("record2");
-  on.className += " recordSpin";
-  record2.style.animationPlayState = "running";
-  audio2.loop = true;
-  audio2.play();
-}
+  localStorage.setItem("health", stringifiedHealth);
 
-function record3On() {
-  var on = document.getElementById("record3");
-  on.className += " recordSpin";
-  record3.style.animationPlayState = "running";
-  audio3.loop = true;
-  audio3.play();
-}
+  progressBar.style.backgroundColor = `hsl(${progressHue}, 38%, 46%)`;
+  healthStatus.style.color = `hsl(${progressHue}, 45%, 18%)`;
 
-function recordOff() {
-  record1.style.animationPlayState = "paused";
-  record2.style.animationPlayState = "paused";
-  record3.style.animationPlayState = "paused";
-  audio1.pause();
-  audio2.pause();
-  audio3.pause();
-}
-
-let slideIndex = 1;
-showSlides(slideIndex);
-
-function plusSlides(n) {
-  showSlides((slideIndex += n));
-  record1.style.animationPlayState = "paused";
-  record2.style.animationPlayState = "paused";
-  record3.style.animationPlayState = "paused";
-  audio1.pause();
-  audio2.pause();
-  audio3.pause();
-}
-
-function currentSlide(n) {
-  showSlides((slideIndex = n));
-}
-
-function showSlides(n) {
-  let i;
-  let slides = document.getElementsByClassName("recordPlayer");
-  let dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {
-    slideIndex = 1;
+  if (progress < 10) {
+    icon.src = "https://jaynadesjardins.github.io/download20250501185417.png";
+  } else if (progress < 50) {
+    icon.src = "https://jaynadesjardins.github.io/download20250501185504.png";
+  } else if (progress < 90) {
+    icon.src = "https://jaynadesjardins.github.io/download20250501185257.png";
+  } else {
+    icon.src = "https://jaynadesjardins.github.io/download20250501184912.png";
   }
-  if (n < 1) {
-    slideIndex = slides.length;
+}
+
+function increaseProgress() {
+  if (index < health.length - 1) {
+    index++;
+    progressHue = progressHue + 15;
+    updateUI();
   }
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
+}
+
+function resetProgress() {
+  if (index > 0) {
+    index--;
+    progressHue = progressHue - 15;
+    updateUI();
   }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
+}
+
+updateUI();
+
+function UpdateButtonStatus(d) {
+  const current = window.getComputedStyle(d).backgroundColor;
+
+  if (current === "rgba(0, 0, 0, 0)") {
+    d.style.backgroundColor = "rgba(0, 0, 0, 1)";
+    localStorage.setItem(d.id, "on");
+  } else {
+    d.style.backgroundColor = "rgba(0, 0, 0, 0)";
+    localStorage.setItem(d.id, "off");
   }
-  slides[slideIndex - 1].style.display = "block";
-  dots[slideIndex - 1].className += " active";
 }
