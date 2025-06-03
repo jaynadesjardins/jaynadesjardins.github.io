@@ -1,294 +1,303 @@
-<div class="row">
-  <div class="column left">
-    <div class="column picture">
-      <img src="https://jaynadesjardins.github.io/download20250501184912.png" class="characterImage" id="characterImage"></img>
-    </div>
-    <div class="column character">
-      <h1>Sterling</h1>
-      <p class="healthText"></p>
-      <div class="progress-bar">
-        <div id="progress" class="progress"></div>
-        <p id="healthStatus">Incapacitated</p>
+<head>
+  <link rel="stylesheet" type="text/css" href=style.css">
+</head>
+
+<body>
+  
+  <script src="script.js" type="text/javascript"></script>
+
+  <div class="row">
+    <div class="column left">
+      <div class="column picture">
+        <img src="https://jaynadesjardins.github.io/download20250501184912.png" class="characterImage" id="characterImage"></img>
+      </div>
+      <div class="column character">
+        <h1>Sterling</h1>
+        <p class="healthText"></p>
+        <div class="progress-bar">
+          <div id="progress" class="progress"></div>
+          <p id="healthStatus">Incapacitated</p>
+        </div>
+      </div>
+      <div class="health">
+        <button class="healthButton plus" onclick="increaseProgress()">&#43;</button>
+        <button class="healthButton minus" onclick="resetProgress()">&#8722;</button>
+      </div>
+      <div class="section">
+        <h3>WILLPOWER</h3>
+        <div class="parent">
+          <div class="selection2">
+            <div id="W1" class="selection2Inside" onclick="UpdateButtonStatus(this)"></div>
+          </div>
+          <div class="selection2">
+            <div cid="W2" class="selection2Inside" onclick="UpdateButtonStatus(this)"></div>
+          </div>
+          <div class="selection2">
+            <div id="W3" class="selection2Inside" onclick="UpdateButtonStatus(this)"></div>
+          </div>
+          <div class="selection2">
+            <div id="W4" class="selection2Inside" onclick="UpdateButtonStatus(this)"></div>
+          </div>
+          <div class="selection2">
+            <div id="W5" class="selection2Inside" onclick="UpdateButtonStatus(this)"></div>
+          </div>
+          <div class="selection2">
+            <div id="W6" class="selection2Inside" onclick="UpdateButtonStatus(this)"></div>
+          </div>
+          <div class="selection2">
+            <div id="W7" class="selection2Inside" onclick="UpdateButtonStatus(this)"></div>
+          </div>
+          <div class="selection2">
+            <div id="W8" class="selection2Inside" onclick="UpdateButtonStatus(this)"></div>
+          </div>
+        </div>
+        <div class="parent">
+          <div class="selection">
+            <div id="W9" class="selectionInside" onclick="UpdateButtonStatus(this)"></div>
+          </div>
+          <div class="selection">
+            <div id="W10" class="selectionInside" onclick="UpdateButtonStatus(this)"></div>
+          </div>
+          <div class="selection">
+            <div id="W11" class="selectionInside" onclick="UpdateButtonStatus(this)"></div>
+          </div>
+          <div class="selection">
+            <div id="W12" class="selectionInside" onclick="UpdateButtonStatus(this)"></div>
+          </div>
+          <div class="selection">
+            <div id="W13" class="selectionInside" onclick="UpdateButtonStatus(this)"></div>
+          </div>
+          <div class="selection">
+            <div id="W14" class="selectionInside" onclick="UpdateButtonStatus(this)"></div>
+          </div>
+          <div class="selection">
+            <div id="W15" class="selectionInside" onclick="UpdateButtonStatus(this)"></div>
+          </div>
+          <div class="selection">
+            <div id="W16" class="selectionInside" onclick="UpdateButtonStatus(this)"></div>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <h3>BLOODPOOL</h3>
+        <div class="parent">
+          <div class="selection">
+            <div id="B1" class="selectionInside" onclick="UpdateButtonStatus(this)"></div>
+          </div>
+          <div class="selection">
+            <div id="B2" class="selectionInside" onclick="UpdateButtonStatus(this)"></div>
+          </div>
+          <div class="selection">
+            <div id="B3" class="selectionInside" onclick="UpdateButtonStatus(this)"></div>
+          </div>
+          <div class="selection">
+            <div id="B4" class="selectionInside" onclick="UpdateButtonStatus(this)"></div>
+          </div>
+          <div class="selection">
+            <div id="B5" class="selectionInside" onclick="UpdateButtonStatus(this)"></div>
+          </div>
+          <div class="selection">
+            <div id="B6" class="selectionInside" onclick="UpdateButtonStatus(this)"></div>
+          </div>
+          <div class="selection">
+            <div id="B7" class="selectionInside" onclick="UpdateButtonStatus(this)"></div>
+          </div>
+          <div class="selection">
+            <div id="B8" class="selectionInside" onclick="UpdateButtonStatus(this)"></div>
+          </div>
+        </div>
+        <div class="parent">
+          <div class="selection">
+            <div id="B9" class="selectionInside" onclick="UpdateButtonStatus(this)"></div>
+          </div>
+          <div class="selection">
+            <div id="B10" class="selectionInside" onclick="UpdateButtonStatus(this)"></div>
+          </div>
+          <div class="selection">
+            <div id="B11" class="selectionInside" onclick="UpdateButtonStatus(this)"></div>
+          </div>
+          <div class="selection">
+            <div id="B12" class="selectionInside" onclick="UpdateButtonStatus(this)"></div>
+          </div>
+          <div class="selection">
+            <div id="B13" class="selectionInside" onclick="UpdateButtonStatus(this)"></div>
+          </div>
+          <p class="BPT"> Blood Per Turn: 1</p>
+        </div>
       </div>
     </div>
-    <div class="health">
-      <button class="healthButton plus" onclick="increaseProgress()">&#43;</button>
-      <button class="healthButton minus" onclick="resetProgress()">&#8722;</button>
+    <div class="column right">
+      <div class="attributesSection">
+        <h2 class="title ATTRIBUTES">ATTRIBUTES</h2>
+        <div class="column stat1">
+          <h2>PHYSICAL</h2>
+          <div class="column attribute">
+            <p>STRENGTH</p>
+            <p>DEXTERITY</p>
+            <p>STAMINA</p>
+          </div>
+          <div class="column value">
+            <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
+            <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
+            <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
+          </div>
+        </div>
+        <div class="column stat2">
+          <h2>SOCIAL</h2>
+          <div class="column attribute">
+            <p>CHARISMA</p>
+            <p>MANIPULATION</p>
+            <p>APPEARANCE</p>
+          </div>
+          <div class="column value">
+            <p>&#9679 &#9679 &#9679 &#9679 &#9675</p>
+            <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
+            <p>&#9679 &#9679 &#9679 &#9679 &#9679</p>
+          </div>
+        </div>
+        <div class="column stat3">
+          <h2>MENTAL</h2>
+          <div class="column attribute">
+            <p>PERCEPTION</p>
+            <p>INTELLIGENCE</p>
+            <p>WITS</p>
+          </div>
+          <div class="column value">
+            <p>&#9679 &#9679 &#9679 &#9679 &#9675</p>
+            <p>&#9679 &#9679 &#9675 &#9675 &#9675</p>
+            <p>&#9679 &#9679 &#9675 &#9675 &#9675</p>
+          </div>
+        </div>
+      </div>
+      <div class="abilitiesSection">
+        <h2 class="title ABILITIES">ABILITIES</h2>
+        <div class="column stat1">
+          <h2>TALENTS</h2>
+          <div class="column attribute">
+            <p>ALERTNESS</p>
+            <p>ATHLETICS</p>
+            <p>BRAWL</p>
+            <p>DODGE</p>
+            <p>EMPATHY</p>
+            <p>EXPRESSION</p>
+            <p>INTIMIDATION</p>
+            <p>LEADERSHIP</p>
+            <p>STREETWISE</p>
+            <p>SUBTERFUGE</p>
+          </div>
+          <div class="column value">
+            <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
+            <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
+            <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
+            <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
+            <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
+            <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
+            <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
+            <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
+            <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
+            <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
+          </div>
+        </div>
+        <div class="column stat2">
+          <h2>SKILLS</h2>
+          <div class="column attribute">
+            <p>ANIMAL KEN</p>
+            <p>CRAFTS</p>
+            <p>DRIVE</p>
+            <p>ETIQUETTE</p>
+            <p>FIREARMS</p>
+            <p>LARCENY</p>
+            <p>MELEE</p>
+            <p>PERFORMANCE</p>
+            <p>STEALTH</p>
+            <p>SURVIVAL</p>
+          </div>
+          <div class="column value">
+            <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
+            <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
+            <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
+            <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
+            <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
+            <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
+            <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
+            <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
+            <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
+            <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
+          </div>
+        </div>
+        <div class="column stat3">
+          <h2>KNOWLEDGES</h2>
+          <div class="column attribute">
+            <p>ACADEMICS</p>
+            <p>COMPUTER</p>
+            <p>FINANCE</p>
+            <p>INVESTIGATION</p>
+            <p>LAW</p>
+            <p>MEDICINE</p>
+            <p>OCCULT</p>
+            <p>POLITICS</p>
+            <p>SCIENCE</p>
+            <p>TECHNOLOGY</p>
+          </div>
+          <div class="column value">
+            <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
+            <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
+            <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
+            <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
+            <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
+            <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
+            <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
+            <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
+            <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
+            <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
+          </div>
+        </div>
+      </div>
+      <div class="advantagesSection">
+        <h2 class="title ADVANTAGES">ADVANTAGES</h2>
+        <div class="column stat1">
+          <h2>DISCIPLINES</h2>
+          <div class="column attribute">
+            <p>DEMENTATION</p>
+            <p>AUSPEX</p>
+            <p>PRESENCE</p>
+          </div>
+          <div class="column value">
+            <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
+            <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
+            <p>&#9679 &#9675 &#9675 &#9675 &#9675</p>
+          </div>
+        </div>
+        <div class="column stat2">
+          <h2>BACKGROUNDS</h2>
+          <div class="column attribute">
+            <p>RESOURCES</p>
+            <p>DOMAIN</p>
+            <p>MENTOR</p>
+          </div>
+          <div class="column value">
+            <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
+            <p>&#9679 &#9675 &#9675 &#9675 &#9675</p>
+            <p>&#9679 &#9675 &#9675 &#9675 &#9675</p>
+          </div>
+        </div>
+        <div class="column stat3">
+          <h2>VIRTUES</h2>
+          <div class="column attribute">
+            <p>CONSCIENCE</p>
+            <p>SELF-CONTROL</p>
+            <p>COURAGE</p>
+          </div>
+          <div class="column value">
+            <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
+            <p>&#9679 &#9675 &#9675 &#9675 &#9675</p>
+            <p>&#9679 &#9675 &#9675 &#9675 &#9675</p>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="section">
-      <h3>WILLPOWER</h3>
-      <div class="parent">
-        <div class="selection2">
-          <div id="W1" class="selection2Inside" onclick="UpdateButtonStatus(this)"></div>
-        </div>
-        <div class="selection2">
-          <div cid="W2" class="selection2Inside" onclick="UpdateButtonStatus(this)"></div>
-        </div>
-        <div class="selection2">
-          <div id="W3" class="selection2Inside" onclick="UpdateButtonStatus(this)"></div>
-        </div>
-        <div class="selection2">
-          <div id="W4" class="selection2Inside" onclick="UpdateButtonStatus(this)"></div>
-        </div>
-        <div class="selection2">
-          <div id="W5" class="selection2Inside" onclick="UpdateButtonStatus(this)"></div>
-        </div>
-        <div class="selection2">
-          <div id="W6" class="selection2Inside" onclick="UpdateButtonStatus(this)"></div>
-        </div>
-        <div class="selection2">
-          <div id="W7" class="selection2Inside" onclick="UpdateButtonStatus(this)"></div>
-        </div>
-        <div class="selection2">
-          <div id="W8" class="selection2Inside" onclick="UpdateButtonStatus(this)"></div>
-        </div>
-      </div>
-      <div class="parent">
-        <div class="selection">
-          <div id="W9" class="selectionInside" onclick="UpdateButtonStatus(this)"></div>
-        </div>
-        <div class="selection">
-          <div id="W10" class="selectionInside" onclick="UpdateButtonStatus(this)"></div>
-        </div>
-        <div class="selection">
-          <div id="W11" class="selectionInside" onclick="UpdateButtonStatus(this)"></div>
-        </div>
-        <div class="selection">
-          <div id="W12" class="selectionInside" onclick="UpdateButtonStatus(this)"></div>
-        </div>
-        <div class="selection">
-          <div id="W13" class="selectionInside" onclick="UpdateButtonStatus(this)"></div>
-        </div>
-        <div class="selection">
-          <div id="W14" class="selectionInside" onclick="UpdateButtonStatus(this)"></div>
-        </div>
-        <div class="selection">
-          <div id="W15" class="selectionInside" onclick="UpdateButtonStatus(this)"></div>
-        </div>
-        <div class="selection">
-          <div id="W16" class="selectionInside" onclick="UpdateButtonStatus(this)"></div>
-        </div>
-      </div>
-    </div>
-    <div class="section">
-      <h3>BLOODPOOL</h3>
-      <div class="parent">
-        <div class="selection">
-          <div id="B1" class="selectionInside" onclick="UpdateButtonStatus(this)"></div>
-        </div>
-        <div class="selection">
-          <div id="B2" class="selectionInside" onclick="UpdateButtonStatus(this)"></div>
-        </div>
-        <div class="selection">
-          <div id="B3" class="selectionInside" onclick="UpdateButtonStatus(this)"></div>
-        </div>
-        <div class="selection">
-          <div id="B4" class="selectionInside" onclick="UpdateButtonStatus(this)"></div>
-        </div>
-        <div class="selection">
-          <div id="B5" class="selectionInside" onclick="UpdateButtonStatus(this)"></div>
-        </div>
-        <div class="selection">
-          <div id="B6" class="selectionInside" onclick="UpdateButtonStatus(this)"></div>
-        </div>
-        <div class="selection">
-          <div id="B7" class="selectionInside" onclick="UpdateButtonStatus(this)"></div>
-        </div>
-        <div class="selection">
-          <div id="B8" class="selectionInside" onclick="UpdateButtonStatus(this)"></div>
-        </div>
-      </div>
-      <div class="parent">
-        <div class="selection">
-          <div id="B9" class="selectionInside" onclick="UpdateButtonStatus(this)"></div>
-        </div>
-        <div class="selection">
-          <div id="B10" class="selectionInside" onclick="UpdateButtonStatus(this)"></div>
-        </div>
-        <div class="selection">
-          <div id="B11" class="selectionInside" onclick="UpdateButtonStatus(this)"></div>
-        </div>
-        <div class="selection">
-          <div id="B12" class="selectionInside" onclick="UpdateButtonStatus(this)"></div>
-        </div>
-        <div class="selection">
-          <div id="B13" class="selectionInside" onclick="UpdateButtonStatus(this)"></div>
-        </div>
-        <p class="BPT"> Blood Per Turn: 1</p>
-      </div>
+    <div class="column info">
+      <p>weakness, generation, demeanor, nature</p>
     </div>
   </div>
-  <div class="column right">
-    <div class="attributesSection">
-      <h2 class="title ATTRIBUTES">ATTRIBUTES</h2>
-      <div class="column stat1">
-        <h2>PHYSICAL</h2>
-        <div class="column attribute">
-          <p>STRENGTH</p>
-          <p>DEXTERITY</p>
-          <p>STAMINA</p>
-        </div>
-        <div class="column value">
-          <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
-          <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
-          <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
-        </div>
-      </div>
-      <div class="column stat2">
-        <h2>SOCIAL</h2>
-        <div class="column attribute">
-          <p>CHARISMA</p>
-          <p>MANIPULATION</p>
-          <p>APPEARANCE</p>
-        </div>
-        <div class="column value">
-          <p>&#9679 &#9679 &#9679 &#9679 &#9675</p>
-          <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
-          <p>&#9679 &#9679 &#9679 &#9679 &#9679</p>
-        </div>
-      </div>
-      <div class="column stat3">
-        <h2>MENTAL</h2>
-        <div class="column attribute">
-          <p>PERCEPTION</p>
-          <p>INTELLIGENCE</p>
-          <p>WITS</p>
-        </div>
-        <div class="column value">
-          <p>&#9679 &#9679 &#9679 &#9679 &#9675</p>
-          <p>&#9679 &#9679 &#9675 &#9675 &#9675</p>
-          <p>&#9679 &#9679 &#9675 &#9675 &#9675</p>
-        </div>
-      </div>
-    </div>
-    <div class="abilitiesSection">
-      <h2 class="title ABILITIES">ABILITIES</h2>
-      <div class="column stat1">
-        <h2>TALENTS</h2>
-        <div class="column attribute">
-          <p>ALERTNESS</p>
-          <p>ATHLETICS</p>
-          <p>BRAWL</p>
-          <p>DODGE</p>
-          <p>EMPATHY</p>
-          <p>EXPRESSION</p>
-          <p>INTIMIDATION</p>
-          <p>LEADERSHIP</p>
-          <p>STREETWISE</p>
-          <p>SUBTERFUGE</p>
-        </div>
-        <div class="column value">
-          <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
-          <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
-          <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
-          <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
-          <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
-          <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
-          <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
-          <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
-          <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
-          <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
-        </div>
-      </div>
-      <div class="column stat2">
-        <h2>SKILLS</h2>
-        <div class="column attribute">
-          <p>ANIMAL KEN</p>
-          <p>CRAFTS</p>
-          <p>DRIVE</p>
-          <p>ETIQUETTE</p>
-          <p>FIREARMS</p>
-          <p>LARCENY</p>
-          <p>MELEE</p>
-          <p>PERFORMANCE</p>
-          <p>STEALTH</p>
-          <p>SURVIVAL</p>
-        </div>
-        <div class="column value">
-          <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
-          <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
-          <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
-          <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
-          <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
-          <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
-          <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
-          <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
-          <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
-          <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
-        </div>
-      </div>
-      <div class="column stat3">
-        <h2>KNOWLEDGES</h2>
-        <div class="column attribute">
-          <p>ACADEMICS</p>
-          <p>COMPUTER</p>
-          <p>FINANCE</p>
-          <p>INVESTIGATION</p>
-          <p>LAW</p>
-          <p>MEDICINE</p>
-          <p>OCCULT</p>
-          <p>POLITICS</p>
-          <p>SCIENCE</p>
-          <p>TECHNOLOGY</p>
-        </div>
-        <div class="column value">
-          <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
-          <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
-          <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
-          <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
-          <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
-          <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
-          <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
-          <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
-          <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
-          <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
-        </div>
-      </div>
-    </div>
-    <div class="advantagesSection">
-      <h2 class="title ADVANTAGES">ADVANTAGES</h2>
-      <div class="column stat1">
-        <h2>DISCIPLINES</h2>
-        <div class="column attribute">
-          <p>DEMENTATION</p>
-          <p>AUSPEX</p>
-          <p>PRESENCE</p>
-        </div>
-        <div class="column value">
-          <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
-          <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
-          <p>&#9679 &#9675 &#9675 &#9675 &#9675</p>
-        </div>
-      </div>
-      <div class="column stat2">
-        <h2>BACKGROUNDS</h2>
-        <div class="column attribute">
-          <p>RESOURCES</p>
-          <p>DOMAIN</p>
-          <p>MENTOR</p>
-        </div>
-        <div class="column value">
-          <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
-          <p>&#9679 &#9675 &#9675 &#9675 &#9675</p>
-          <p>&#9679 &#9675 &#9675 &#9675 &#9675</p>
-        </div>
-      </div>
-      <div class="column stat3">
-        <h2>VIRTUES</h2>
-        <div class="column attribute">
-          <p>CONSCIENCE</p>
-          <p>SELF-CONTROL</p>
-          <p>COURAGE</p>
-        </div>
-        <div class="column value">
-          <p>&#9679 &#9679 &#9679 &#9675 &#9675</p>
-          <p>&#9679 &#9675 &#9675 &#9675 &#9675</p>
-          <p>&#9679 &#9675 &#9675 &#9675 &#9675</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="column info">
-    <p>weakness, generation, demeanor, nature</p>
-  </div>
-</div>
+</body>
