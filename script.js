@@ -1,26 +1,28 @@
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("DOM fully loaded and parsed");
-
-  // Restore all togglable buttons
-  const allButtons = document.querySelectorAll(
-    ".selectionInside, .selection2Inside"
-  );
-
-  allButtons.forEach((button, index) => {
+  // Restore button toggles
+  const allButtons = document.querySelectorAll(".selectionInside, .selection2Inside");
+  allButtons.forEach((button) => {
     const savedState = localStorage.getItem(button.id);
-    if (savedState === "on") {
-      button.style.backgroundColor = "rgba(0, 0, 0, 1)";
-    } else {
-      button.style.backgroundColor = "rgba(0, 0, 0, 0)";
-    }
+    button.style.backgroundColor = savedState === "on" ? "rgba(0, 0, 0, 1)" : "rgba(0, 0, 0, 0)";
   });
+
+  // Restore health index & progressHue from localStorage, or default if none saved
+  index = parseInt(localStorage.getItem("healthIndex"), 10);
+  if (isNaN(index) || index < 0 || index >= health.length) {
+    index = 7; // default index value (Healthy)
+  }
+
+  // Restore progressHue accordingly (optional)
+  // Assuming initial progressHue = 110 + (index difference)*15
+  progressHue = 110 + (index - 7) * 15;
+
+  updateUI();
 });
 
 const progressBar = document.getElementById("progress");
 const icon = document.getElementById("characterImage");
 const healthStatus = document.getElementById("healthStatus");
 let currentProgress = 0;
-let index = 7;
 let progressHue = 110;
 const health = [
   "Incapacitated",
@@ -33,6 +35,11 @@ const health = [
   "Healthy"
 ];
 
+let index = parseInt(localStorage.getItem("healthIndex"), 10);
+if (isNaN(index) || index < 0 || index >= health.length) {
+  index = 7;  // default index (Healthy)
+}
+
 const stringifiedHealth = JSON.stringify(health);
 
 function updateUI() {
@@ -40,7 +47,7 @@ function updateUI() {
   progressBar.style.width = progress + "%";
   healthStatus.textContent = health[index];
 
-  localStorage.setItem("health", stringifiedHealth);
+  localStorage.setItem("healthIndex", index);
 
   progressBar.style.backgroundColor = `hsl(${progressHue}, 38%, 46%)`;
   healthStatus.style.color = `hsl(${progressHue}, 45%, 18%)`;
@@ -55,6 +62,7 @@ function updateUI() {
     icon.src = "https://jaynadesjardins.github.io/download20250501184912.png";
   }
 }
+
 
 function increaseProgress() {
   if (index < health.length - 1) {
